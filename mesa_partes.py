@@ -24,5 +24,10 @@ class MesaPartes:
         nuevo = Tramite(codigo, remitente, self.Tipos[tipo], asunto, folios, fecha)
         self.tramites.append(nuevo)
         return nuevo
-    
+
+    def buscar_por_codigo(self, codigo):
+        for t in self.tramites:
+            if t.codigo == codigo:
+                return t
+            return None
 

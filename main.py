@@ -31,6 +31,7 @@ def registrar_solicitud(mesa):
 def menu():
     print("\n=== MESA DE PARTES DIGITAL - I.E. 3091 HUACA DE ORO ===")
     print("1. Registrar solicitud")
+    print("2. Consultar por código")
     print("5. Salir")
 
 
@@ -42,6 +43,12 @@ def main():
         opcion = input("Elige una opción: ")
         if opcion == "1":
             registrar_solicitud(mesa)
+        elif opcion == "2":
+            t = mesa.buscar_por_codigo(input("Código: ").upper())
+            if t is None:
+                print("No se encontró el expediente.")
+            else:
+                t.mostrar()
         elif opcion == "5":
             salir = True
             print("Hasta pronto.")
