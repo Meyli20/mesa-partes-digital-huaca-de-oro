@@ -1,6 +1,6 @@
 class Tramite:
 
-    def _init_(self, codigo, remitente, tipo_tramite, asunto, folios, fecha_registro):
+    def __init__(self, codigo, remitente, tipo_tramite, asunto, folios, fecha_registro):
         self.codigo = codigo
         self.remitente = remitente
         self.tipo_tramite = tipo_tramite
