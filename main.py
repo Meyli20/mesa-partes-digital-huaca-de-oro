@@ -1,6 +1,11 @@
 from mesa_partes import MesaPartes
 from validador import validar_texto, validar_folios, validar_opcion
 
+def mostrar_lista(lista):
+    if len(lista) == 0:
+        print("No hay solicitudes registradas.")
+    for t in lista:
+        t.mostrar()
 
 def registrar_solicitud(mesa):
     remitente = input("Remitente (nombres y apellidos): ")
@@ -32,6 +37,8 @@ def menu():
     print("\n=== MESA DE PARTES DIGITAL - I.E. 3091 HUACA DE ORO ===")
     print("1. Registrar solicitud")
     print("2. Consultar por código")
+    print("3. Listar ordenando por folios (menor a mayor)")
+    print("4. Listar ordenado por folios (mayor a menor)")
     print("5. Salir")
 
 
@@ -49,6 +56,10 @@ def main():
                 print("No se encontró el expediente.")
             else:
                 t.mostrar()
+        elif opcion == "3":
+            mostrar_lista(mesa.ordenar_por_folios())
+        elif opcion == "4":
+            mostrar_lista(mesa.ordenar_por_folios(descendente=True))
         elif opcion == "5":
             salir = True
             print("Hasta pronto.")

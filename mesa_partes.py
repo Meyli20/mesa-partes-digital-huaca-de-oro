@@ -30,4 +30,19 @@ class MesaPartes:
             if t.codigo == codigo:
                 return t
             return None
+        
+    def ordenar_por_folios(self, descendente=False):
+        lista = self.tramites[:]
+        n = len(lista)
+        for i in range(n - 1):
+            pos = i
+            for j in range(i + 1, n):
+                if descendente:
+                    if lista[j].folios > lista[pos].folios:
+                        pos = j
+                else:
+                    if lista[j].folios < lista[pos].folios:
+                        pos = j
+            lista[i], lista[pos] = lista[pos], lista[i]
+            return lista
 
