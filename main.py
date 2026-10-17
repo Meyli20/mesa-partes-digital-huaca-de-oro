@@ -27,6 +27,9 @@ def registrar_solicitud(mesa):
     while not validar_folios(folios):
         folios = input("Debe ser un entero mayor o igual a 1: ")
 
+    remitente = remitente.strip().title()
+    asunto = asunto.strip()
+    asunto = asunto[0].upper() + asunto[1:]
     nuevo = mesa.registrar(remitente, int(tipo), asunto, int(folios))
     print("\n=== COMPROBANTE DE REGISTRO ===")
     nuevo.mostrar()
@@ -37,7 +40,7 @@ def menu():
     print("\n=== MESA DE PARTES DIGITAL - I.E. 3091 HUACA DE ORO ===")
     print("1. Registrar solicitud")
     print("2. Consultar por código")
-    print("3. Listar ordenando por folios (menor a mayor)")
+    print("3. Listar ordenado por folios (menor a mayor)")
     print("4. Listar ordenado por folios (mayor a menor)")
     print("5. Salir")
 
